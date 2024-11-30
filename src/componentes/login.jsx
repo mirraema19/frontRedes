@@ -12,7 +12,7 @@ const LoginPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:4000/login', { email, password });
+            const response = await axios.post('https://codepro.servebeer.com/login', { email, password });
             localStorage.setItem('token', response.data.token);
             navigate('/productos');
         } catch (err) {

@@ -9,7 +9,7 @@ const ProductsPage = () => {
 
     const fetchProducts = async () => {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:4000/productos', {
+        const response = await axios.get('https://codepro.servebeer.com/productos', {
             headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(response.data);
@@ -17,7 +17,7 @@ const ProductsPage = () => {
 
     const handleDelete = async (id) => {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:4000/productos/${id}`, {
+        await axios.delete(`https://codepro.servebeer.com/productos/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
         });
         fetchProducts();
@@ -29,12 +29,12 @@ const ProductsPage = () => {
 
         if (editingId) {
             await axios.put(
-                `http://localhost:4000/productos/${editingId}`,
+                `https://codepro.servebeer.com/productos/${editingId}`,
                 formData,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
         } else {
-            await axios.post('http://localhost:4000/productos', formData, {
+            await axios.post('https://codepro.servebeer.com/productos', formData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
         }
